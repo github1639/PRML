@@ -27,7 +27,7 @@ Test_K = rbf_kernel(Test_x, Test_x, gamma=1 / (2 * sigma ** 2))
 alpha = np.linalg.inv(Training_K + lambda_reg * np.eye(len(Training_x))) @ Training_y
 
 y_pred = Training_K @ alpha
-y_pred_test = Training_K @ alpha
+y_pred_test = Test_K @ alpha
 
 def Error(y, y_pred):
     error = 1/2 * (1 / y.shape[0]) * np.sum((y - y_pred) ** 2)
